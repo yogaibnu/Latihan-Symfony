@@ -1,0 +1,10 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Tampil Artikel{% endblock %}
+
+{% block body %}
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.body }}</p>
+    <hr>
+    <a href="/">Go Back</a>
+{% endblock %}

@@ -9,14 +9,26 @@
 
     class ArticleController extends AbstractController {
         /**
-         * @Route("article")
+         * @Route("article", name="article_list")
          */
 
         public function article(): Response {
-            $article = $this->getDoctrine()->getRepository;
+            $article = $this->getDoctrine()->getRepository
             (Article::class)->findAll();
 
             return $this->render('article/article.html.twig', array
+                ('article' => $article)
+            );
+        }
+
+        /**
+         * @Route("/article/{id}", name="article_show")
+         */
+        public function show($id) {
+            $article = $this->getDoctrine()->getRepository
+            (Article::class)->find($id);
+
+            return $this->render('article/show.html.twig', array
                 ('article' => $article)
             );
         }

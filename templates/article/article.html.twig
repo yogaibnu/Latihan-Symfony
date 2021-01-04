@@ -14,9 +14,9 @@
             <tbody>
                 {% for articles in article %}
                     <tr>
-                        <td>{{ articles }}</td>
+                        <td>{{ articles.title }}</td>
                         <td>
-                            <a href="/article/1" class="btn btn-dark">Show</a>
+                            <a href="/article/{{ articles.id }}" class="btn btn-dark">Show</a>
                         </td>
                     </tr>
                 {% endfor %}
