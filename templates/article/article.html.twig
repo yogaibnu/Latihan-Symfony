@@ -1,0 +1,28 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Coba Artikel{% endblock %}
+
+{% block body %}
+    {% if article %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Judul Artikel</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for articles in article %}
+                    <tr>
+                        <td>{{ articles }}</td>
+                        <td>
+                            <a href="/article/1" class="btn btn-dark">Show</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p> Tidak ada artikel </p>
+    {% endif %}
+{% endblock %}
