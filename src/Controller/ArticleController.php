@@ -15,14 +15,19 @@
     use Symfony\Component\Form\Extension\Core\Type\TextareaType;
     use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+    use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+    
     class ArticleController extends AbstractController {
         /**
          * @Route("article", name="article_list")
          */
-
         public function article(): Response {
             $article = $this->getDoctrine()->getRepository
             (Article::class)->findAll();
+            
+            if (!$this->isGranted('ROLE_USER')) {
+                throw new AccessDeniedException();
+            }
 
             return $this->render('article/article.html.twig', array
                 ('article' => $article)

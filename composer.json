@@ -70,6 +70,9 @@
         }
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.26"
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "symfony/maker-bundle": "^1.26",
+        "symfony/stopwatch": "^4.4",
+        "symfony/web-profiler-bundle": "^4.4"
     }
 }
