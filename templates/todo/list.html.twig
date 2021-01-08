@@ -1,0 +1,42 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Todo{% endblock %}
+
+{% block body %}
+    {% if todo %}
+        <table id="todo" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Todo</th>
+                    <th>Status</th>
+                    <th>Pilihan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i, todos in todo %}
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ todos.description }}</td>
+                        <td>
+                            {% if todos.isDone %}
+                                {{ 'SELESAI (' ~ (todos.doneAt | date('d-m-Y H:i:s')) ~ ')'}}
+                            {% else %}
+                                {{ 'BELUM SELESAI' }}
+                            {% endif %}
+                            </td>
+                            <td>
+                            <a href="{{ path('todo_done', {id: todos.id}) }}">Set Selesai</a>
+                            <a href="{{ path('todo_form', {id: todos.id}) }}">Edit</a>
+                            <a href="{{ path('todo_delete', {id: todos.id}) }}">Hapus</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('todo_form') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% else %}
+        <p> Tidak ada list. </p>
+        <a href="{{ path('todo_form') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% endif %}
+{% endblock %}

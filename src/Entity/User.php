@@ -77,7 +77,7 @@ class User implements UserInterface, \Serializable
     public function getRoles()
     {
         return [
-            'ROLE_USER'
+            'ROLE_SUPER_ADMIN'
         ];
     }
 
