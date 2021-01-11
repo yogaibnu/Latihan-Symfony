@@ -1,0 +1,35 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Todo{% endblock %}
+
+{% block body %}
+    {% if file %}
+        <table id="todo" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Judul</th>
+                    <th>File</th>
+                    <th>Pilihan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i, files in file %}
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ files.judul }}</td>
+                        <td>{{ files.file }}</td>
+                            <td>
+                            {# <a href="{{ path('#', {id: todos.id}) }}">Edit</a>
+                            <a href="{{ path('#', {id: todos.id}) }}">Hapus</a> #}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('file_form') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% else %}
+        <p> Tidak ada list. </p>
+        <a href="{{ path('file_form') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% endif %}
+{% endblock %}

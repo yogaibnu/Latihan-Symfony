@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class RegisterController extends AbstractController
 {
@@ -20,7 +21,11 @@ class RegisterController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $encoder)
     {
-        $user = new User();
+        $user = new User(); 
+
+        if (!is_null($user)) {
+            throw new HttpException(409, "User already exists!");
+        }
         
         $form = $this->createForm(UserType::class, $user);
 

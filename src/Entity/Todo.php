@@ -35,6 +35,11 @@ class Todo
      */
     private $done_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="todos")
+     */
+    private $person;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,6 +77,18 @@ class Todo
     public function setDoneAt(\DateTimeInterface $done_at): self
     {
         $this->done_at = $done_at;
+
+        return $this;
+    }
+
+    public function getPerson(): ?Person
+    {
+        return $this->person;
+    }
+
+    public function setPerson(?Person $person): self
+    {
+        $this->person = $person;
 
         return $this;
     }

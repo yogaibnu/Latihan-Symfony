@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 use App\Entity\Todo;
 use App\Form\TodoType;
 use App\Repository\TodoRepository;

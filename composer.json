@@ -11,17 +11,17 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
         "sensio/framework-extra-bundle": "^5.6",
-        "symfony/console": "4.4.*",
-        "symfony/dotenv": "4.4.*",
+        "symfony/console": "5.1.*",
+        "symfony/dotenv": "5.1.*",
         "symfony/flex": "^1.11",
-        "symfony/form": "4.4.*",
-        "symfony/framework-bundle": "4.4.*",
+        "symfony/form": "5.1.*",
+        "symfony/framework-bundle": "5.1.*",
         "symfony/monolog-bundle": "^3.6",
-        "symfony/proxy-manager-bridge": "4.4.*",
-        "symfony/security-bundle": "4.4.*",
-        "symfony/twig-bundle": "4.4.*",
-        "symfony/validator": "4.4.*",
-        "symfony/yaml": "4.4.*",
+        "symfony/proxy-manager-bridge": "5.1.*",
+        "symfony/security-bundle": "5.1.*",
+        "symfony/twig-bundle": "5.1.*",
+        "symfony/validator": "5.1.*",
+        "symfony/yaml": "5.1.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },
@@ -67,13 +67,13 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.4.*"
+            "require": "5.1.*"
         }
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "symfony/maker-bundle": "^1.26",
-        "symfony/stopwatch": "^4.4",
-        "symfony/web-profiler-bundle": "^4.4"
+        "symfony/stopwatch": "5.1.*",
+        "symfony/web-profiler-bundle": "5.1.*"
     }
 }

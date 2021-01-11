@@ -1,0 +1,35 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Person{% endblock %}
+
+{% block body %}
+    {% if persons %}
+        <table id="person" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>NIK</th>
+                    <th>Nama</th>
+                    <th>Pilihan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i, person in persons %}
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ person.nik }}</td>
+                        <td>{{ person.nama }}</td>
+                        <td>
+                            <a href="{{ path('person_edit', {id: person.id}) }}">Edit</a>
+                            <a href="{{ path('person_delete', {id: person.id}) }}">Hapus</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('person_create') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% else %}
+        <p> Tidak ada list. </p>
+        <a href="{{ path('person_create') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% endif %}
+{% endblock %}
