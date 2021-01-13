@@ -6,8 +6,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use App\Entity\Todo;
 use App\Form\TodoType;
+use App\Entity\Person;
+use App\Repository\PersonRepository;
 use App\Repository\TodoRepository;
-
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

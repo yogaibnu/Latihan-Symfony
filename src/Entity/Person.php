@@ -34,6 +34,12 @@ class Person
      */
     private $todos;
 
+    //convert to string
+    public function __toString()
+    {
+        return $this->nama;
+    }
+
     public function __construct()
     {
         $this->todos = new ArrayCollection();

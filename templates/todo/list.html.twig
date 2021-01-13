@@ -9,6 +9,7 @@
                 <tr>
                     <th>No</th>
                     <th>Todo</th>
+                    <th>Person</th>
                     <th>Status</th>
                     <th>Pilihan</th>
                 </tr>
@@ -18,14 +19,15 @@
                     <tr>
                         <td>{{ i + 1 }}</td>
                         <td>{{ todos.description }}</td>
+                        <td>{{ todos.person }}</td>
                         <td>
                             {% if todos.isDone %}
                                 {{ 'SELESAI (' ~ (todos.doneAt | date('d-m-Y H:i:s')) ~ ')'}}
                             {% else %}
                                 {{ 'BELUM SELESAI' }}
                             {% endif %}
-                            </td>
-                            <td>
+                        </td>               
+                        <td>
                             <a href="{{ path('todo_done', {id: todos.id}) }}">Set Selesai</a>
                             <a href="{{ path('todo_form', {id: todos.id}) }}">Edit</a>
                             <a href="{{ path('todo_delete', {id: todos.id}) }}">Hapus</a>

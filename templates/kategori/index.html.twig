@@ -1,0 +1,33 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Kategori{% endblock %}
+
+{% block body %}
+    {% if kategoris %}
+        <table id="kategori" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Kategori</th>
+                    <th>Pilihan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i, kategori in kategoris %}
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ kategori.nama_kategori }}</td>
+                        <td>
+                            <a href="{{ path('kategori_edit', {id: kategori.id}) }}">Edit</a>
+                            <a href="{{ path('kategori_delete', {id: kategori.id}) }}">Hapus</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('kategori_create') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% else %}
+        <p> Tidak ada list. </p>
+        <a href="{{ path('kategori_create') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% endif %}
+{% endblock %}

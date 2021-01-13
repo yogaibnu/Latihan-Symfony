@@ -33,28 +33,28 @@ class FileController extends AbstractController
     public function form(Request $request, ?string $id=null, FileRepository $repository)
     {
         if ($id){
-            $file = $repository->find($id);
+            $berkas = $repository->find($id);
         }else{
-            $file = new File();
+            $berkas = new File();
         }
 
-        if (!$file) {
+        if (!$berkas) {
             throw new NotFoundHttpException();
         }            
 
-        $form = $this->createForm(FilesType::class, $file);
+        $form = $this->createForm(FilesType::class, $berkas);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             // $file = $form->getData();
-            $files = $request->files->get('form')['files'];
+            $file = $request->files->get('form')['files'];
 
             $uploads_directory = $this->getParameter('uploads_directory');
 
-            $filename = md5(uniqid()) . '.' . $files->guessExtension();
-            $file->setBody($filename);
+            $filename = md5(uniqid()) . '.' . $file->guessExtension();
+            $berkas->setFiles($filename);
 
-            $files->move(
+            $file->move(
                 $uploads_directory,
                 $filename
             ); 

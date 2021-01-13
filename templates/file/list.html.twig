@@ -1,10 +1,10 @@
 {% extends 'main.html.twig' %}
 
-{% block title %}Todo{% endblock %}
+{% block title %}Files{% endblock %}
 
 {% block body %}
     {% if file %}
-        <table id="todo" class="table table-striped">
+        <table id="form" class="table table-striped">
             <thead>
                 <tr>
                     <th>No</th>
@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i, files in file %}
+                {% for i, files in berkas %}
                     <tr>
                         <td>{{ i + 1 }}</td>
                         <td>{{ files.judul }}</td>

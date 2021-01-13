@@ -10,7 +10,7 @@
 </style>
 
 <div class="example-wrapper">
-    <a href="{{ path('logout') }}">Logout</a>
+    {# <a href="{{ path('logout') }}">Logout</a> #}
     <h2>Login Page</h2>
 
     {% if error %}
@@ -26,8 +26,8 @@
         <input type="hidden" name="_target_path" value="{{ path('article_list') }}"/>
         <button type="submit">Login</button>
     </form>
-
-    <a href="{{ path('register') }}">Register</a>
-
+    <p>Do not have an account? Click button Register.<br>
+    <a href="{{ path('register') }}" class="btn btn-primary">Register</a>
+    </p>
 </div>
 {% endblock %}

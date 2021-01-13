@@ -8,7 +8,7 @@
         /**
          * @Route("/blog", name="blog_list")
          */
-        public function list(): Response{
+        public function list(){
             //..
         }
     }

@@ -1,0 +1,35 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Produk{% endblock %}
+
+{% block body %}
+    {% if produks %}
+        <table id="produk" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kategori</th>
+                    <th>Nama Produk</th>
+                    <th>Pilihan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i, produk in produks %}
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ produk.kategori }}</td>
+                        <td>{{ produk.nama_produk }}</td>
+                        <td>
+                            <a href="{{ path('produk_edit', {id: produk.id}) }}">Edit</a>
+                            <a href="{{ path('produk_delete', {id: produk.id}) }}">Hapus</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('produk_create') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% else %}
+        <p> Tidak ada list. </p>
+        <a href="{{ path('produk_create') }}" class="btn btn-primary mt-3"> Tambah Baru </a>
+    {% endif %}
+{% endblock %}
